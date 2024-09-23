@@ -33,7 +33,13 @@ public class BackstagePassShould
     [Fact]
     public void NeverHaveAQualityAbove50()
     {
+        var backstagePass = new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 5, Quality = 49 }; 
         
+        BackStageProcessor.Process(backstagePass);
+
+        
+        Assert.Equal(50, backstagePass.Quality);
+        Assert.Equal(4, backstagePass.SellIn);
     }
 
     [Fact]
